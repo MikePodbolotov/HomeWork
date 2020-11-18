@@ -30,6 +30,7 @@ print("Изначальный массив:")
 print(someArrey)
 someArrey.count
 
+
 // 4. Удалить из этого массива все четные числа и все числа, которые не делятся на 3.
 var index = 0
 repeat {
@@ -40,6 +41,23 @@ repeat {
     }
 } while index <= someArrey.count-1
 
+print("_______________________________________________________")
 print("Массив после удаления чисел не удовлетворяющих условию:")
 print(someArrey)
 someArrey.count
+
+
+// 5. Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 50 элементов.
+//Fn = Fn-1 + Fn-2
+var arrayFibonacciNumbers = [0, 1]
+var count = 2
+var fibonacciNumbers: Int
+
+while count < 50 {
+    fibonacciNumbers = arrayFibonacciNumbers[count-1] + arrayFibonacciNumbers[count-2]
+    arrayFibonacciNumbers.append(fibonacciNumbers)
+    count += 1
+}
+print("_______________________________________________________")
+print("Массив c числами Фибоначчи:")
+print(arrayFibonacciNumbers)
