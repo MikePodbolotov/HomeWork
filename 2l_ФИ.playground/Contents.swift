@@ -49,13 +49,17 @@ someArrey.count
 
 // 5. Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 50 элементов.
 //Fn = Fn-1 + Fn-2
+var fibonacciNumbers: Int?
 var arrayFibonacciNumbers = [0, 1]
 var count = 2
-var fibonacciNumbers: Int
+
+func addFibonacciNumbers(_ count: Int) {
+    fibonacciNumbers = arrayFibonacciNumbers[count-1] + arrayFibonacciNumbers[count-2]
+    arrayFibonacciNumbers.append(fibonacciNumbers!)
+}
 
 while count < 50 {
-    fibonacciNumbers = arrayFibonacciNumbers[count-1] + arrayFibonacciNumbers[count-2]
-    arrayFibonacciNumbers.append(fibonacciNumbers)
+    addFibonacciNumbers(count)
     count += 1
 }
 print("_______________________________________________________")
