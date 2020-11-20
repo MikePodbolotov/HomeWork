@@ -18,7 +18,7 @@ func division(number: Int, denominator: Int) -> Bool {
 result = division(number: 12, denominator: 3)
 
 
-// 3. Создать возрастающий массив из 100 чисел.
+// 3.1 Создать возрастающий массив из 100 чисел. Вариант 1
 var someArrey = [Int]()
 var number = 1
 while someArrey.count < 100 {
@@ -29,6 +29,21 @@ while someArrey.count < 100 {
 print("Изначальный массив:")
 print(someArrey)
 someArrey.count
+
+// 3.2 Создать возрастающий массив из 100 чисел. Вариант 2
+var array = [Int]()
+for i in 0...99 {
+    array.append(i)
+}
+print("Изначальный массив:")
+print(array)
+array.count
+
+// 3.3 Создать возрастающий массив из 100 чисел. Вариант 3
+var arrayNext = Array(1...100)
+print("Изначальный массив:")
+print(arrayNext)
+arrayNext.count
 
 
 // 4. Удалить из этого массива все четные числа и все числа, которые не делятся на 3.
