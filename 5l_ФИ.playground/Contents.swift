@@ -1,5 +1,3 @@
-// Амир, у меня в середине кода в месте описания расширения к протоколу к тебе вопрос
-
 import UIKit
 import Foundation
 
@@ -50,9 +48,6 @@ protocol Car {
     func action()
 }
 
-// Вопрос Амиру
-// С расширением какая-то фигня. Не смог нормально обратиться к перечислению и в итоге действие переключения работает криво (требует указания состояния)
-// Как правильно работать с перечислениями в расширениях протоколов?
 extension Car {
     mutating func StartStopEngine(action: StartStopEngine) {
         switch action {
@@ -155,3 +150,31 @@ secondCar.action()
 secondCar.OpenCloseWindows(action: .open)
 secondCar.StartStopEngine(action: .srart)
 
+// Реализация перечисления в расширении протокола
+enum OnOffSwitch {
+    case off, on
+}
+
+protocol LightSwitchble: AnyObject {
+    var lightState: OnOffSwitch { get set }
+    func toggle()
+}
+
+extension LightSwitchble {
+        func toggle() {
+            self.lightState = self.lightState == .off ? .on : .off
+        }
+}
+
+class Light: LightSwitchble {
+    var lightState: OnOffSwitch
+    
+    init(lightState: OnOffSwitch) {
+        self.lightState = lightState
+    }
+}
+
+let myLight = Light(lightState: .off)
+myLight.lightState
+myLight.toggle()
+myLight.lightState
